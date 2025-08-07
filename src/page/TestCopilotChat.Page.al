@@ -57,7 +57,7 @@ page 50001 "Test Copilot Chat"
             AzureOpenAIChatCompletionParams.SetMaxTokens(CopilotSetupRec."Max Tokens");
             AzureOpenAIChatCompletionParams.SetTemperature(0.7);
 
-            AzureOpenAIChatMessages.AddSystemMessage(SystemMessage);
+            AzureOpenAIChatMessages.AddSystemMessage(SystemMessageLbl);
             AzureOpenAIChatMessages.AddUserMessage(UserMessage);
 
             AzureOpenAI.GenerateChatCompletion(AzureOpenAIChatMessages, AzureOpenAIResponse);
@@ -76,5 +76,5 @@ page 50001 "Test Copilot Chat"
         UserMessage: Text;
         Response: Text;
 
-        SystemMessage: Label 'You are a helpful assistant. You will answer the user questions based on the information provided by the user.';
+        SystemMessageLbl: Label 'You are a helpful assistant. You will answer the user questions based on the information provided by the user.';
 }

@@ -11,6 +11,7 @@ codeunit 50000 "Register Copilot"
         this.RegisterCopilotCapability();
     end;
 
+
     local procedure RegisterCopilotCapability()
     var
         CopilotCapability: Codeunit "Copilot Capability";

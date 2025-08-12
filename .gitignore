@@ -3,7 +3,9 @@
 #launch.json folder
 .vscode/
 #Cache folder
-# .alcache/
+.alcache/
+# Except settings.json inside .vscode/alcache/
+!.vscode/settings.json
 #Symbols folder
 .alpackages/
 #Snapshots folder
@@ -20,9 +22,4 @@ rad.json
 *.flf
 #Test results file
 TestResults.xml
-# Ignore global VS Code settings
-# .vscode/settings.json
-
-# But do not ignore workspace settings
-# !.vscode/settings.json
 

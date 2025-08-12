@@ -10,9 +10,9 @@ controladdin ALCodeDisplayControlAddIn
     VerticalShrink = true;
     HorizontalStretch = true;
     HorizontalShrink = true;
-    StartupScript = 'src/scripts/ALCodeDisplayStartup.js';
-    Scripts = 'src/scripts/ALCodeDisplayScript.js';
-    StyleSheets = 'src/styles/ALCodeDisplay.css';
+    StartupScript = '.\src\scripts\ALCodeDisplayStartup.js';
+    Scripts = '.\src\scripts\ALCodeDisplayScript.js';
+    StyleSheets = '.\src\styles\ALCodeDisplay.css';
 
     /// <summary>
     /// Event triggered when the control add-in is ready

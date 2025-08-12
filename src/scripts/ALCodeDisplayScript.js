@@ -1,5 +1,4 @@
-// ALCodeDisplayStartup.js
-// Initializes the ControlAddIn when it's loaded
+// ALCodeDisplayscript.js
 
 (function () {
     'use strict';

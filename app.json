@@ -41,5 +41,8 @@
         "GenerateCaptions",
         "AllTranslationItems",
         "TranslationFile"
-    ]
+    ],
+  "resourceFolders": [
+    "Resources"
+  ]
 }

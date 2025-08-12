@@ -15,6 +15,9 @@ controladdin ALCodeDisplay
     StyleSheets = '.\src\styles\ALCodeDisplay.css';
     StartupScript = '.\src\scripts\ALCodeDisplayStartup.js';
 
+
+
+
     /// <summary>
     /// Event triggered when the control add-in is ready
     /// </summary>

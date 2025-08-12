@@ -19,7 +19,6 @@ page 50002 "Enhance Email"
                 ApplicationArea = All;
                 MultiLine = true;
                 ShowCaption = false;
-
                 trigger OnValidate()
                 begin
 

@@ -10,12 +10,12 @@ codeunit 50002 "Enhance email AOAI Fun." implements "AOAI Function"
         ParametersDefinition.ReadFrom(
             '{"type": "object",' +
             '"properties": {' +
-                '"text": { "type": "string", "EmailBody": "A Paragraph for composing an Email."},' +
-            '},"required": ["text"]}'
-            );
+                '"content": { "type": "string", "description": "The enhanced email text in the required format."}' +
+            '},"required": ["content"]}'
+        );
 
         FunctionDefinition.Add('name', FunctionNameLbl);
-        FunctionDefinition.Add('EmailBody', 'Call this function to create a new Email');
+        FunctionDefinition.Add('description', 'Call this function to return the enhanced email JSON');
         FunctionDefinition.Add('parameters', ParametersDefinition);
 
         ToolDefinition.Add('type', 'function');
@@ -26,11 +26,11 @@ codeunit 50002 "Enhance email AOAI Fun." implements "AOAI Function"
 
     procedure Execute(Arguments: JsonObject): Variant
     var
-        EmailBody: JsonToken;
+        EmailContent: JsonToken;
     begin
-        Arguments.Get('EmailBody', EmailBody);
-        TempEmailBody := EmailBody.AsValue().AsText();
-        exit('Completed creating payment terms');
+        Arguments.Get('content', EmailContent);
+        TempEmailBody := EmailContent.AsValue().AsText();
+        exit('Completed creating enhanced email');
     end;
 
     procedure GetName(): Text

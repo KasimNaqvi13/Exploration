@@ -18,6 +18,8 @@ page 50003 "Enhance Mail Output"
                 {
                     ShowCaption = false;
                     MultiLine = true;
+                    ExtendedDatatype = RichContent;
+
                 }
 
             }

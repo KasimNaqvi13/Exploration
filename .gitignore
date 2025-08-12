@@ -1,7 +1,11 @@
 ### AL ###
 #Template for AL projects for Dynamics 365 Business Central
+# # Except settings.json inside .vscode/alcache/
+# !.vscode/settings.json
 # launch.json folder
-.vscode/
+.vscode/rad.json
+.vscode/launch.json
+.vscode/tasks.json
 #Cache folder
 .alcache/
 #Symbols folder

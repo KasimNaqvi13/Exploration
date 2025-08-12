@@ -24,6 +24,18 @@ body {
     overflow: hidden;
 }
 
+/* Line Numbber */
+.line-number {
+    display: inline-block;
+    width: 2em;
+    user-select: none;
+    opacity: 0.5;
+    text-align: right;
+    margin-right: 8px;
+    color: gray;
+}
+
+
 /* Header section */
 .al-code-viewer-header {
     display: flex;

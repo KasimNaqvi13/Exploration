@@ -80,6 +80,7 @@ page 50100 "AL Code Viewer Card"
                     begin
                         Error('Control Add-in error: %1', ErrorMessage);
                     end;
+
                 }
             }
         }

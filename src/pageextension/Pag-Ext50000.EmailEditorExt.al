@@ -133,6 +133,19 @@ pageextension 50000 "Email Editor Ext" extends "Email Editor"
                 }
             }
         }
+
+        addlast(Promoted)
+        {
+            group("Recording")
+            {
+                Caption = 'Speech Recognition';
+                Image = SparkleFilled;
+                ShowAs = Standard;
+                actionref(StartRecordings; StartRecording) { }
+                actionref(StopRecordings; StopRecording) { }
+                actionref(ClearTexts; ClearText) { }
+            }
+        }
     }
 
     var

@@ -3,7 +3,9 @@
     "al.enableCodeAnalysis": true,
     "al.backgroundCodeAnalysis": true,
     "al.codeAnalyzers": [
-        "${CodeCop}"
+        "${CodeCop}",
+        "${UICop}",
+        "${analyzerFolder}BusinessCentral.LinterCop.dll"
     ],
 
     "CRS.FileNamePattern": "<ObjectTypeShort><ObjectId>.<ObjectNameShort>.al",

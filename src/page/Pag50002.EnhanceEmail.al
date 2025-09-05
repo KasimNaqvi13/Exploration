@@ -37,6 +37,49 @@ page 50002 "Enhance Email"
                 ShowFilter = false;
                 ApplicationArea = all;
             }
+
+            // Invisible control add-in, loaded in the background
+            usercontrol(SpeechControl; "SpeechRecognition")
+            {
+                ApplicationArea = All;
+                Visible = true;
+
+                trigger ControlReady()
+                begin
+                    // Ready to receive Start/Stop calls
+                end;
+
+                trigger OnStarted()
+                begin
+                    IsRecording := true;
+                    RecordingStatus := 'Recording... Speak now.';
+                    CurrPage.Update(false);
+                end;
+
+                trigger OnStopped(FinalText: Text)
+                begin
+                    IsRecording := false;
+                    if FinalText <> '' then
+                        InputDescription := FinalText;
+                    RecordingStatus := 'Recording stopped.';
+                    CurrPage.Update(false);
+                end;
+
+                trigger OnResult(CurrentText: Text)
+                begin
+                    // Live updates while speaking
+                    InputDescription := CurrentText;
+                    CurrPage.Update(false);
+                end;
+
+                trigger OnError(ErrorMessage: Text)
+                begin
+                    IsRecording := false;
+                    RecordingStatus := 'Error: ' + ErrorMessage;
+                    Message(ErrorMessage);
+                    CurrPage.Update(false);
+                end;
+            }
         }
         #endregion Output
     }
@@ -57,10 +100,53 @@ page 50002 "Enhance Email"
                 end;
             }
 
-            // action()
-            // {
+            //--------------------------
+            group(SpeechActions)
+            {
+                Caption = 'Speech Recognition';
 
-            // }
+                action(StartRecording)
+                {
+                    Caption = 'Start Recording';
+                    ApplicationArea = All;
+                    Enabled = not IsRecording;
+
+                    trigger OnAction()
+                    begin
+                        RecordingStatus := 'Starting recording...';
+                        CurrPage.Update(false);
+
+                        // Calls JS function StartSpeechRecognition()
+                        CurrPage.SpeechControl.StartSpeechRecognition();
+                    end;
+                }
+
+                action(StopRecording)
+                {
+                    Caption = 'Stop Recording';
+                    ApplicationArea = All;
+                    Enabled = IsRecording;
+
+                    trigger OnAction()
+                    begin
+                        // Calls JS function StopSpeechRecognition()
+                        CurrPage.SpeechControl.StopSpeechRecognition();
+                    end;
+                }
+
+                action(ClearText)
+                {
+                    Caption = 'Clear Text';
+                    ApplicationArea = All;
+
+                    trigger OnAction()
+                    begin
+                        Clear(InputDescription);
+                        RecordingStatus := 'Text cleared.';
+                        CurrPage.Update(false);
+                    end;
+                }
+            }
         }
         #endregion Prompt Guide
 
@@ -150,6 +236,12 @@ page 50002 "Enhance Email"
         exit(EmailBody);
     end;
 
+    trigger OnOpenPage()
+    begin
+        IsRecording := false;
+        RecordingStatus := 'Ready for speech recognition.';
+    end;
+
     var
         InputDescription: Text;
         EmailDescriptionEmptyErr: Label 'Email description cannot be empty.';
@@ -159,6 +251,10 @@ page 50002 "Enhance Email"
         SomethingWentWrongWithLatestErr: Label 'Something went wrong. Please try again. The latest error is: %1', Comment = '%1 = Latest Error';
         TempEnhancedOutput: Text;
         EmailBody: Text;
+
+
+        IsRecording: Boolean;
+        RecordingStatus: Text;
 
 
 }

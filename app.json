@@ -1,6 +1,6 @@
 {
     "id": "0a1bc520-b532-4486-9db2-337d046b5e01",
-    "name": "Copilot",
+    "name": "Cetas Information Technology Pvt Ltd",
     "publisher": "50100-50200",
     "version": "1.0.0.1",
     "brief": "",
@@ -27,7 +27,7 @@
         }
     ],
     "resourceExposurePolicy": {
-        "allowDebugging": true,
+        "allowDebugging": false,
         "allowDownloadingSource": false,
         "includeSourceInSymbolFile": false,
         "applyToDevExtension": false

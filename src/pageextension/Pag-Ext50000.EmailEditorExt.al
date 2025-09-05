@@ -146,6 +146,33 @@ pageextension 50000 "Email Editor Ext" extends "Email Editor"
                 actionref(ClearTexts; ClearText) { }
             }
         }
+
+
+
+        addlast(Category_New)
+        {
+            actionref("Enhance Mail with Copilots"; "Enhance Mail with Copilot")
+            {
+
+            }
+        }
+        addlast(Prompting)
+        {
+            //temporary purpose
+            action("Enhance Mail with Copilot")
+            {
+                Caption = 'Enhance Mail with Copilot';
+                Image = Sparkle;
+                Ellipsis = true;
+                applicationArea = All;
+                // InFooterBar = true;
+
+                trigger OnAction()
+                begin
+                    Page.Run(Page::"Enhance Email");
+                end;
+            }
+        }
     }
 
     var
